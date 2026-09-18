@@ -1,0 +1,341 @@
+header {
+  background-color: #228B22;
+  padding: 30px;
+  margin-left: 5cm;
+}
+
+nav {
+  background-color: #F5F5DC;
+  padding: 20px;
+  text-align: center;
+}
+
+html {
+    background-color: #ffffff !important;
+}
+
+header, footer {
+    width: 1200px !important;
+    margin: 0 auto !important;
+    flex-shrink: 0;
+}
+
+main {
+    flex: 1 0 auto !important;
+    width: 100%;
+}
+
+body {
+    background-color: #7FFFD4;
+    width: 1260px !important;
+    margin: 0 auto !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+
+    background-size: 1260px auto !important;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+}
+
+.container-xxl {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 auto;
+  padding: 0 30px;
+  max-width: 1260px;
+  width: 100%;
+}
+
+article {
+  background-color: #FF00FF;
+  padding: 20px;
+  margin-top: 20px;
+
+  h5 {
+    color: green;
+  }
+
+  h3 {
+    color: #0000FF
+    border-style: 4px solid DodgerBlue;
+    background-color: Orange;
+  }
+}
+
+aside {
+  background-color: #A52A2A;
+  padding: 20px;
+  margin-top: 20px;
+
+  h4 {
+    color: white;
+  }
+}
+
+div.imgtag1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div.imgtag1 img,
+div.imgtag2 img {
+    height: 100%;
+    object-fit: cover;
+}
+
+footer {
+  background-color: #228B22;
+  padding: 30px;
+  text-align: center;
+  margin-top: auto;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+    color: #000000;
+    margin: 0;
+}
+
+.large-text {
+    font-size: 2.0em;
+}
+.medium-text {
+    font-size: 1.5em;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+.btn.active {
+  font-weight: bold;
+  animation: blinkText 1s infinite alternate;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes blinkText {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.script-font {
+    font-family: 'Niconne', fantasy;
+    font-size: 2.5rem;
+}
+
+.standard-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.front-page-body {
+    background-size: 1300px 1600px !important;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+    background-color: white;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 1600px !important;
+}
+
+.bottom-spacer {
+    flex: 1;
+}
+
+main {
+    width: 100%;
+    max-width: 1260px;
+    margin: 0 auto;
+    min-height: auto;
+    background-color: transparent;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-message,
+#main-visual {
+    width: 100%;
+    padding-left: 20px;
+    margin-left: 0;
+    text-align: left;
+    align-self: flex-start;
+}
+
+#main-message {
+    display: block;
+    position: static;
+    font-size: 1.0rem;
+    color: #333;
+    font-weight: bold;
+    margin: 10px 0 10px 20px;
+}
+
+.reconstructed-logo {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 40px auto !important;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.logo-content-wrapper {
+    display: block;
+    width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.logo-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.hitode-left {
+    width: 35px;
+    height: auto;
+    align-self: flex-end;
+    margin-bottom: 10px;
+}
+
+.hitode-right {
+    width: 40px;
+    height: auto;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.logo-title {
+    font-family: 'Yuji Mai', serif;
+    font-size: 64px;
+    font-weight: normal;
+    color: #000;
+    line-height: 1.2;
+}
+
+.logo-middle-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.line {
+    flex-grow: 1;
+    height: 1px;
+    border-top: 1px dotted #000;
+}
+
+.fish-image {
+    width: 165px;
+    height: auto;
+    margin: 0 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo-bottom-row {
+    margin-top: 10px;
+}
+
+.author-name {
+    font-family: 'Niconne', cursive;
+    font-size: 48px;
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .logo-title { font-size: 32px; }
+    .author-name { font-size: 32px; }
+    .fish-image { width: 120px; }
+}
+
+#top-button {
+    right: 50% !important;
+    margin-right: -650px !important;
+}
+
+@media (max-width: 1300px) {
+    #top-button {
+        right: 20px !important;
+        margin-right: 0 !important;
+    }
+}
+
+#visual-u-workspace {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    row-gap: 50px;
+    column-gap: 20px;
+    width: 100%;
+    padding: 0 50px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    margin-bottom: 150px;
+}
+
+.visual-block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 !important;
+    transition: transform 0.3s ease;
+}
+
+.visual-block p {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.pos-row1 { grid-row: 1; }
+.pos-row2 { grid-row: 2; }
+.pos-row3 { grid-row: 3; }
+
+.pos-row3-center {
+    grid-row: 3;
+    transform: translateY(80px);
+}
+
+.hexagon-container {
+    width: 210px;
+    height: 210px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-pink { background-color: #FF1493; }
+.bg-gold { background-color: #DAA520; }
+.bg-emerald { background-color: #008B8B; }
+
+.hexagon-image {
+    width: calc(100% - 8px) !important;
+    height: calc(100% - 8px) !important;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: block;
+}

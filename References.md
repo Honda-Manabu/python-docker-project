@@ -1,0 +1,30 @@
+### Note (01):
+#### Generative AI can be stubborn and inflexible.
+While the outcome might differ when dealing with expert engineers or AI agents operating on precise data, using a free version—especially with my aging memory—led to an immense amount of wasted effort.I finally realized a contradiction: the generative AI doesn't have the insight to know what I should really be doing, unless I ask the right questions.When you're dealing with something new and lacking knowledge, this is perhaps unavoidable, but it's also true that you certainly can't solve the problem without the AI.
+
+Although I submitted the final project for CS50x, the production environment remains active, so I must ensure I can reliably receive messages. However, despite initially having three synchronized environments (development, staging, and production), I frequently encountered situations where the webpage would stop displaying on the server after a deployment. The causes varied each time, and I was so preoccupied with troubleshooting that I could not focus on the core task: email functionality. To make matters worse, notifications confirming successful email receipt were being filtered into the spam folder, so I failed to notice them. Although the outcome was inevitable given that I had been telling the AI ​​that a successful result was a "failure," my patience finally ran out after a long, arduous struggle. While using Amazon SES was the plan all along, I decided to switch my configuration from the SMTP method to one using IAM. By the time I realized that this wasn't the root cause, reverting the changes had already become difficult. Had it been within a week, I could have simply recreated the Lightsail instance from a snapshot and synchronized my local environment with the server's state; however, two months had already passed. Consequently, I decided to submit my CS50x final project while omitting this specific part.
+### Note (02):
+####  Refining the styling is a task for the future
+Ideally, I would have liked to work on style adjustments—such as using media queries for responsive design or converting fixed pixel values ​​(px) to relative units (vh, rem, %)—but Gemini (the free version) does not seem particularly adept at these kinds of tasks. Consequently, I have decided to leave the pursuit of a polished finish for a later stage.
+### Note (03):Segmentation of test procedures
+####  First, test only the sending functionality using Python PowerShell.
+The procedure involves first verifying the script Json's operation by logging actions without actually sending emails, and then applying for email authentication within the server environment.
+Implement the logic to process requests from the Fetch API and actually send emails. Next, I will test email sending in the staging environment using Python's PowerShell. I am discribuing the idea here as it may be useful for others working in different environments;
+
+### Note (04):
+#### Attempted to skip approval and move on
+Since the current plan only involves sending emails from a verified domain to my own email address, I can simply verify my email address and conduct tests within the sandbox environment; that setup will work just fine for production as well. Therefore, I tried to move on without obtaining production access approval. However, some time had passed since I purchased the domain via AWS Route 53, and the specifications for managing domain records had changed. Although I cannot be certain of the exact details, during the domain record verification process for email functionality, Route 53 automatically configured the domain exclusively for email use, causing the A or AAAA records—which are essential for displaying the webpage—to disappear. Just as I discovered the reason why the webpage was no longer loading, I received the approval email to migrate from the sandbox environment to production.
+### Note (05):
+#### Reworking the task
+Following Gemini's suggestions, I proceeded with the SMTP method via the Amazon SES account dashboard for about a month and a half, only to eventually run into connectivity issues between the Docker container and the AWS server.
+I found myself bogged down fixing peripheral configurations—such as flaws in the `deploy-docs.yml` file used for automated deployment—and was unable to focus on the core task of actually sending and receiving emails.
+When I instructed Gemini to identify the root cause step-by-step rather than relying on guesswork—and to propose solutions only after the cause was confirmed—it would comply initially but soon revert to its old habits. Since I also had doubts about the final outcomes, I ultimately decided to abandon that approach.
+I then tried ChatGPT for the first time in six months and was amazed by its dramatic evolution; it was now capable of conducting a step-by-step conversation.
+However, the results were the same in the end. Resolving the complexities between the local environment, GitHub, and the server took time because, even after fixing configuration files or code, the executable often remained outdated. Once the Dockerfile configuration and deployment process were successfully sorted out, the email functionality was up and running in no time.
+### Note (06):
+#### Adjusting the Dockerfile and docker-compose configuration.
+
+This process turned into a series of detours what followed was a chat session with generative AI that spanned 50,000 words. The crux of the problem lay in reconciling the network specifications between Docker and AWS—, the conversation with ChatGPT began going in circles. In the end, it turned out that simply modifying a configuration file was all that was needed; Had I possessed the memory I had at age twenty, I wouldn't have been so confused—but the chat had become so long that I couldn't keep track of things I had previously set aside.Since the AI ​​simply provides what it deems the optimal solution without even taking into account the facts exchanged within the chat, it readily retracts its answer when the oversight is pointed out.
+
+
+

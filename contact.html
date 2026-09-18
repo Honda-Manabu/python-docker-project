@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+    <title>Contact</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Niconne&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        const contactData = {{ contact_data | tojson }};
+    </script>
+</head>
+
+<body>
+    <div class="language-switch">
+        <button type="button" id="lang-btn-ja" onclick="setLanguage('ja')">
+            日本語
+        </button>
+
+        <button type="button" id="lang-btn-en" onclick="setLanguage('en')">
+            English
+        </button>
+    </div>
+    <main>
+        <div id="contact-content">
+            <!-- イントロダクションテキスト -->
+            <p id="contact-text-p" style="white-space: pre-wrap;"></p>
+
+            <div id="contact-form-placeholder">
+                <div id="contact-inner-layout" style="display: flex; width: 100%; justify-content: space-between; flex-wrap: wrap;">
+                    <!-- 左側：連絡先情報 -->
+                    <div class="contact-left standard-font" style="flex: 1; min-width: 300px;">
+                        <h2 id="contact-heading" class="script-font"></h2>
+                        <p id="contact-subheading" class="script-font"></p>
+                        <p style="font-size: 0.8rem;">Osaka, Japan</p>
+                        <p style="font-size: 0.8rem;">honda.m3742@icloud.com</p>
+                        <ul class="sns-icons" style="list-style: none; padding: 0; display: flex; gap: 10px;">
+                            <li><a href="https://www.facebook.com/profile.php?id=100080663016126&ref=aymt_homepage_panel#" target="_blank" style="color: inherit;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="https://x.com/search?q=hondamanabu1&src=typd" target="_blank" style="color: inherit;"><i class="fa-brands fa-x-twitter"></i></a></li>
+                            <li><a href="https://github.com/Honda-Manabu" target="_blank" style="color: inherit;"><i class="fa-brands fa-github"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 右側：フォーム本体 -->
+                    <div class="contact-right" style="flex: 1; min-width: 300px;">
+                        <form id="contact-form" method="post">
+
+                            <input type="text" name="name" id="field-name">
+                            <input type="email" name="email" id="field-email">
+                            <input type="text" name="subject" id="field-subject">
+                            <textarea name="message" id="field-message" rows="5"></textarea>
+                            <button type="submit" id="btn-send" class="send-btn"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="form-response-area" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; background-color: rgba(255,255,255,0.5);">
+                <div id="submitted-data" style="margin-bottom: 10px; font-size: 0.9rem;"></div>
+                <div id="response-status-msg" style="color: #d63384; font-weight: bold;"></div>
+            </div>
+
+            <h3 id="achievements-title"></h3>
+            <p id="achievements-content"></p>
+        </div>
+    </main>
+    <footer class="contact-footer">
+        <div>
+            <p>© Honda Manabu All rights reserved.</p>
+            <p>My Email address : honda.m3742@icloud.com</p>
+            <p class="lang-ja">
+                ホームページへの感想やお問い合わせ、お持ちしております。
+            </p>
+            <p class="lang-en">
+                I welcome your feedback and inquiries regarding my website.
+            </p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='language.js') }}"></script>
+    <script src="{{ url_for('static', filename='contact.js') }}"></script>
+
+</body>
+</html>

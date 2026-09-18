@@ -1,0 +1,6 @@
+requests
+Flask
+boto3
+botocore
+python-dotenv
+pytest-playwright

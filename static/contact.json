@@ -1,0 +1,35 @@
+{
+    "ja": {
+        "intro": "コミュニティのページに書いたことを行動に移し、コミュニティの活動を世界的なものにするための方法を検討します。\nオードリー・タンが提唱し、安野貴博がチーム未来を立ち上げた手法に詳しい方（AIエンジニア）を求めます。\n趣旨に賛同し連絡をいただき会員になっていただいた方々で話し合い、形を築いていくためにこの場所を提供します。",
+        "heading": "会話しましょう。 クリックして情報を入力してください。",
+        "subheading": "本田 学 宛",
+        "placeholders": {
+            "name": "お名前 *",
+            "email": "メールアドレス *",
+            "subject": "件名",
+            "message": "メッセージ"
+        },
+        "sendBtn": "送信",
+        "successMsg": "メールが送信されました。返事をお待ちください。",
+        "labels": { "name": "名前", "email": "メール", "subject": "件名", "message": "本文" },
+        "achTitle": "事績",
+        "achContent": ""
+
+    },
+    "en": {
+        "intro": "We will put into action what we've written on the community page and explore ways to make the community's activities global.\nWe are seeking someone (AI engineer) familiar with the methodology advocated by Audrey Tang and used by Takahiro Yasuno to establish Team Mirai.\nThis space is provided for discussion and shaping among those who agree with the purpose, contact us, and become members.",
+        "heading": "Let's Talk. Please click to enter your information.",
+        "subheading": "To Honda Manabu",
+        "placeholders": {
+            "name": "Your Name *",
+            "email": "Email Address *",
+            "subject": "Subject",
+            "message": "Message"
+        },
+        "sendBtn": "SEND",
+        "successMsg": "The email has been sent. Please wait for a reply.",
+        "labels": { "name": "Name", "email": "Email", "subject": "Subject", "message": "Message" },
+        "achTitle": "Achievements",
+        "achContent": ""
+    }
+}

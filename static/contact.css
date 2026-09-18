@@ -1,0 +1,141 @@
+    #contact-content {
+        max-width: 1200px;
+        margin: 0 30px;
+        padding-bottom: 140px;
+    }
+    #contact-text-p {
+        background-color: rgba(0, 100, 0, 0.7) !important;
+        color: #ffffff !important;
+        padding: 40px 30px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border-radius: 8px;
+        white-space: pre-wrap;
+        min-height: 150px;
+    }
+
+    /* フォーム全体のコンテナ */
+    #contact-form-placeholder {
+        background-color: #f8adcc; /* ピンクの背景 */
+        padding: 40px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        color: #333;
+        font-family: Arial, sans-serif;
+    }
+
+    /* 左側のテキストエリア */
+    .contact-left {
+        width: 40%;
+    }
+
+    .contact-left h2 {
+        font-family: 'Cedarville Cursive', cursive;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    /* 右側の入力エリア */
+    .contact-right {
+        width: 55%;
+    }
+
+    .contact-right input,
+    .contact-right textarea {
+        width: 100%;
+        background-color: #3fa2e4;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        color: white;
+    }
+
+    .contact-right input::placeholder,
+    .contact-right textarea::placeholder {
+        color: #e0e0e0;
+    }
+
+    /* 送信ボタン */
+    .send-btn {
+        background-color: #3fa2e4;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        float: right;
+        cursor: pointer;
+    }
+
+    /*
+    .contact-left ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 10px;
+    }
+    */
+    .sns-icons {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 10px;
+    }
+
+    .sns-icons li {
+        background-color: #000;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .sns-icons i {
+        color: #f8adcc;
+        font-size: 18px;
+    }
+
+    #achievements-title,
+    #achievements-content {
+        margin-left: 60px !important;
+        margin-bottom: 30px;
+    }
+
+    #achievements-title {
+        font-weight: bold;
+    }
+
+    .language-switch {
+        text-align: right;
+        margin: 15px 30px;
+    }
+
+    .language-switch button {
+        margin-left: 5px;
+        padding: 5px 12px;
+        cursor: pointer;
+    }
+
+    .contact-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 30px;
+        font-size: 0.85rem;
+        line-height: 1.2;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 1000;
+    }
+
+    .contact-footer p {
+        margin: 0 0 4px 0;
+    }
+
+    .contact-footer p:last-child {
+        margin-bottom: 0;
+    }
