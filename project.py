@@ -26,7 +26,8 @@ def load_contact_data():
 def start_web_app(contact_data):
     """Webページを起動する"""
     app = create_app(contact_data)
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 def create_app(contact_data):
     """Flaskアプリを作成する"""

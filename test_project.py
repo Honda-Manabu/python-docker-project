@@ -33,7 +33,7 @@ def app(monkeypatch, contact_data):
 
     captured_app = {}
 
-    def fake_run(self, debug=True):
+    def fake_run(self, host="127.0.0.1", port=5000, debug=True):
         captured_app["app"] = self
 
     monkeypatch.setattr(project.Flask, "run", fake_run)
