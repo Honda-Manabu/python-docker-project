@@ -537,6 +537,174 @@ test_project .py::test_switch_language_invalid PASSED [100%]
 
 ============== 10 passed in 4.27s =============
 ```
-### **[1]-d **
-As mentioned earlier, the web page—along with its development and operations environment—is already up and running on AWS Lightsail. I do not feel it is necessary to convert the system to use JavaScript, Python, and SQL (as I did here) simply to save a negligible amount of money. However, I do believe that building a GitHub-based development and operations environment—independent of AWS—is a valuable exercise for acquiring knowledge, even without the specific "Visual Studio Code for CS50" setup.
-#### **[1]-d-1 **
+### **[1]-d Consideration and implementation regarding the scope and nature of continued work**
+#### **[1]-d-1 Evaluation**
+As mentioned earlier, the web page—along with its development and operations environment—is already up and running on AWS Lightsail. I do not feel it is necessary to convert the system to use FRSK instead of Django  (as I did here) simply to save a negligible amount of money. However, I do believe that building a GitHub-based development and operations environment—independent of AWS—is a valuable exercise for acquiring knowledge, even without the specific "Visual Studio Code for CS50" setup.
+
+Regarding "Visual Studio Code for CS50," I wonder if I can continue using it after completing the course, considering the rules governing its global availability for anyone to use. Given this, setting up a personal development and operational environment seems like a necessary step.
+
+A personal GitHub Free account includes a monthly allowance for Codespaces—currently 120 hours of compute time and 15 GB-months of storage. However, this does not serve as a substitute for a dedicated, always-on server for general users; it cannot host a Flask application publicly on the internet 24/7. I therefore asked a generative AI to compare using Render against AWS Lightsail; the conclusion was that Render offers no distinct advantage, and certainly isn't worth the effort of a system migration.
+#### **[1]-d-2 Proposed structure for the new repository**
+No PostgreSQL implementation
+```
+   python-docker-project/
+   ├── Flask
+   │　　　└── project.py
+   ├── requirements.txt
+   ├── Dockerfile
+   ├── compose.yaml
+   ├── .gitignore
+   ├──　Web
+   │     ├── contact.html
+   │     └──static
+   │           ├── contact.css
+   │           ├── style.css
+   │           ├── language.js
+   │           ├── contact.js
+   │           └── contact.json
+   ├── tests/
+   │   ├── test_project.py
+   │   └── test_browser.py
+   ├── Python packages
+   │     └── requirements.txt
+   ├── Secret
+   │      └── .env
+   └── .github/
+       └── workflows/
+            └── tests.yml
+```
+Work tasks
+
+Docker Desktop already installed and in use.
+
+   1.Launch the Flask app using local Docker Desktop.
+
+   2.Edit code via VS Code Desktop.
+
+   3.Launch PostgreSQL using Docker as needed.
+
+   4.Run tests using pytest and Playwright.
+
+   5.Automate testing with GitHub Actions.
+#### **[1]-d-3 Download from the CS50p Codespace to the local project.**
+Folder Name : python-docker-project
+
+When downloading the folder, GitHub-related folders and files are automatically generated
+
+**Create a new, empty repository on GitHub**
+
+repository Name : python-docker-project
+
+**Connect the two**
+
+Modify the `.gitignore` file which currently contains only `.env`.
+
+via ChatGPT
+```
+   # Environment variables / secrets
+   .env
+   .env.*
+   !.env.example
+
+   # Python
+   __pycache__/
+   *.py[cod]
+   *.pyo
+   .pytest_cache/
+   .mypy_cache/
+
+   # Virtual environments
+   .venv/
+   venv/
+   env/
+
+   # VS Code
+   .vscode/
+
+   # OS
+   .DS_Store
+   Thumbs.db
+```
+Place the local folder under Git version control.
+
+Using the VS Code terminal locally
+```
+   PS C:\projects\python-docker-project> git init
+      Initialized empty Git repository in
+      C:/projects/python-docker-project/.git/
+```
+(Same as above)
+```
+   git add .
+   git commit -m "Initial commit"
+```
+On the repository page, you will see a URL like `https://github.com/your-username/python-docker-project.git`; copy your username
+
+(Same as above)
+```
+   git remote add origin https://github.com
+   /your-username/python-docker-project.git
+
+   git remote -v
+      origin
+      Honda-Manabu/python-docker-project.git (fetch)
+      origin
+      Honda-Manabu/python-docker-project.git (push)
+
+   git push -u origin main
+      Enumerating objects: 17, done.
+      Counting objects: 100% (17/17), done.
+      Delta compression using up to 12 threads
+      Compressing objects: 100% (17/17), done.
+      Writing objects: 100% (17/17), 23.73 KiB | 2.97 MiB/s, done.
+      Total 17 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0) remote: Resolving deltas: 100% (1/1), done.
+      To Honda-Manabu/python-docker-project.git *
+      [new branch] main -> main
+      branch 'main' set up to track 'origin/main'.
+```
+On the repository page, verify the initial commit.
+#### **[1]-d-4 Create a Dockerfile.**
+Docker Desktop works even without creating an account or logging in after installation. You are all set if the "Engine running" indicator in the bottom-left corner is green.
+
+**Check the Flask startup section in `project.py` and modify it for Docker.**
+```
+   app.run(debug=True)
+      ↓
+   app.run(host="0.0.0.0", port=5000, debug=True)
+
+   test_project.py
+   def fake_run(self, debug=True):
+      ↓
+   def fake_run(self, host="127.0.0.1", port=5000, debug=True):
+```
+Install `pytest` in my local Windows environment and run the tests.
+```
+   python -m pytest -v test_project.py
+      9 passed in 1.35s ==
+```
+**Dockerfile** via ChatGPT
+```
+   FROM python:3.13-slim
+
+   WORKDIR /app
+
+   COPY requirements.txt .
+
+   RUN pip install --no-cache-dir -r requirements.txt
+
+   COPY project.py .
+   COPY contact.html .
+   COPY static/ ./static/
+
+   EXPOSE 5000
+
+   CMD ["python", "project.py"]
+```
+**Build the Docker image.**
+```
+   PS C:\projects\python-docker-project>
+      docker build -t flask-contact-app .
+```
+A screenshot from Docker Desktop obtained by clicking the URL generated upon a successful build
+
+![screenshot of Docker Desktop](images/the screenshot-1 of Docker Desktop.png)
