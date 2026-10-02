@@ -707,4 +707,112 @@ Install `pytest` in my local Windows environment and run the tests.
 ```
 A screenshot from Docker Desktop obtained by clicking the URL generated upon a successful build
 
-![screenshot of Docker Desktop](images/the screenshot-1 of Docker Desktop.png)
+![screenshot of Docker Desktop](images/Docker-Desktop-screenshot-1.png)
+(Same as above:Using the VS Code terminal PowerShell)
+```
+   docker run --name flask-contact-container -p 5000:5000 flask-contact-app
+      * Serving Flask app 'project'
+      * Debug mode: on
+      WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+      * Running on all addresses (0.0.0.0)
+      * Running on http://127.0.0.1:5000
+      * Running on http://172.17.0.2:5000
+      Press CTRL+C to quit
+      * Restarting with stat
+      * Debugger is active!
+      * Debugger PIN: 488-037-849
+```
+With the container running, visit `http://localhost:5000` in your browser to verify.
+#### **[1]-d-5 Use AWS SES from within Docker.**
+**Create a .dockerignore file and securely pass environment variables.**
+```
+   .dockerignore
+      .env
+      .git
+      __pycache__
+      .pytest_cache
+```
+Rebuild the Docker image.
+
+PowerShell
+```
+   PS C:\projects\python-docker-project>(The rest is the same.)
+   docker ps -a
+      ...
+      flask-contact-container
+   docker stop flask-contact-container
+      flask-contact-container
+   docker rm flask-contact-container
+      flask-contact-container
+   docker build -t flask-contact-app .
+```
+Verify success (same as the previous step
+ 'Build the Docker image.')
+Verify the output 'http://127.0.0.1:5000'
+```
+Stop and start the Flask container
+   Ctrl + C
+
+   docker start <container name>
+```
+Github push
+```
+   git add .
+   git commit -m "Commit name"
+   git push origin main
+      Enumerating objects: 8, done.
+      Counting objects: 100% (8/8), done.
+      Delta compression using up to 12 threads
+      Compressing objects: 100% (5/5), done.
+      Writing objects: 100% (6/6), 2.58 KiB | 1.29 MiB/s, done.
+      Total 6 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0) remote:
+      Resolving deltas: 100% (2/2), completed with 2 local objects.
+      To Honda-Manabu/python-docker-project.git
+      5ce58c9..3148e7f main -> main
+```
+Check the results on the GitHub page
+#### **[1]-d-6 Set up a test environment using GitHub Actions**
+Set up a Python environment and automatically run pytest using GitHub Actions.
+
+Create a `.github/workflows/tests.yml` file within my local project.
+```
+   tests.yml via ChatGPT
+
+   name: Python tests
+
+   on:
+      push:
+      branches: [ "main" ]
+   pull_request:
+      branches: [ "main" ]
+
+   jobs:
+      test:
+         runs-on: ubuntu-latest
+
+         steps:
+           - name: Checkout repository
+             uses: actions/checkout@v4
+
+           - name: Set up Python
+             uses: actions/setup-python@v5
+             with:
+               python-version: "3.13"
+
+           - name: Install dependencies
+             run: |
+               python -m pip install --upgrade pip
+               pip install -r requirements.txt
+
+           - name: Install Playwright browsers
+             run: playwright install chromium
+
+           - name: Run tests
+             run: pytest -v
+
+```
+Execute git add, commit, push
+
+Although I encountered an issue with the GitHub UI not updating immediately, the process completed successfully.
+### **[1]-e Closing with a look at future prospects.**
+This concludes the requirements for the CS50P project. Furthermore, for the maintenance and operation of a personal webpage, utilizing the free tier of a database service like PostgreSQL on Render would be more than sufficient. I have already established a Django Docker environment; considering factors such as continuous operation and future scalability—including potential community use—I have determined that there is no advantage to replacing my existing Django setup on AWS Lightsail with a Flask-based setup on a platform like Render. Therefore, I am concluding the project here.
